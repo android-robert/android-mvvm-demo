@@ -1,4 +1,4 @@
-package com.robert.mvvm.view
+package com.robert.mvvm.view.activities
 
 import android.content.Context
 import android.content.Intent
@@ -13,6 +13,7 @@ import com.robert.mvvm.R
 import com.robert.mvvm.data.PeopleFactory
 import com.robert.mvvm.databinding.PeopleActivityBinding
 import com.robert.mvvm.utils.LogUtils
+import com.robert.mvvm.view.PeopleAdapter
 import com.robert.mvvm.viewmodel.PeopleViewModel
 import java.util.*
 

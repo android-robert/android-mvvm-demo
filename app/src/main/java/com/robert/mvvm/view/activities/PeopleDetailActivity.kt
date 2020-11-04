@@ -1,4 +1,4 @@
-package com.robert.mvvm.view
+package com.robert.mvvm.view.activities
 
 import android.content.Context
 import android.content.Intent

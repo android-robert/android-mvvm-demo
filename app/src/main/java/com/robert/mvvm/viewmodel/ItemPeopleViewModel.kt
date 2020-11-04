@@ -4,7 +4,7 @@ import android.content.Context
 import android.view.View
 import androidx.databinding.BaseObservable
 import com.robert.mvvm.model.People
-import com.robert.mvvm.view.PeopleDetailActivity
+import com.robert.mvvm.view.activities.PeopleDetailActivity
 
 class ItemPeopleViewModel(private val context: Context, private var people: People) : BaseObservable() {
     val fullName: String

@@ -1,4 +1,4 @@
-package com.robert.mvvm.view
+package com.robert.mvvm.view.activities
 
 import android.os.Bundle
 import android.view.View
@@ -7,15 +7,15 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.BindingAdapter
 import androidx.databinding.DataBindingUtil
 import com.robert.mvvm.R
-import com.robert.mvvm.databinding.ActivityMainBinding
+import com.robert.mvvm.databinding.ActivityLoginBinding
 import com.robert.mvvm.viewmodel.LoginViewModel
 
 class LoginActivity : AppCompatActivity() {
-    private var activityMainBinding: ActivityMainBinding? = null
+    private var activityMainBinding: ActivityLoginBinding? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        activityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_main)
+        activityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_login)
         activityMainBinding?.viewModel = LoginViewModel(this)
         activityMainBinding?.executePendingBindings()
     }

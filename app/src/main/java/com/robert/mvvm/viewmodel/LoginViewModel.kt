@@ -10,7 +10,7 @@ import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.observers.DisposableObserver
 import com.robert.mvvm.BR;
-import com.robert.mvvm.view.PeopleActivity
+import com.robert.mvvm.view.activities.MainActivity
 
 class LoginViewModel(private val context: Context) : BaseObservable() {
 
@@ -78,7 +78,7 @@ class LoginViewModel(private val context: Context) : BaseObservable() {
     }
 
     fun startMainActivity() {
-        context.startActivity(PeopleActivity.launch(context))
+        context.startActivity(MainActivity.launch(context))
     }
 
     fun reset() {
