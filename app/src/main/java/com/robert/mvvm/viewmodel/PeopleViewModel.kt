@@ -18,10 +18,10 @@ import java.util.*
 
 
 class PeopleViewModel(val context: Context) : Observable() {
-    var peopleProgress: ObservableInt
-    var peopleRecycler: ObservableInt
-    var peopleLabel: ObservableInt
-    var messageLabel: ObservableField<String>
+    var peopleProgress: ObservableInt = ObservableInt(View.GONE)
+    var peopleRecycler: ObservableInt = ObservableInt(View.GONE)
+    var peopleLabel: ObservableInt = ObservableInt(View.VISIBLE)
+    var messageLabel: ObservableField<String> = ObservableField(context.getString(R.string.default_loading_people))
     var peopleList = ObservableArrayList<People>()
     private var compositeDisposable: CompositeDisposable? = CompositeDisposable()
 
@@ -104,11 +104,6 @@ class PeopleViewModel(val context: Context) : Observable() {
     }
 
     init {
-        peopleProgress = ObservableInt(View.GONE)
-        peopleRecycler = ObservableInt(View.GONE)
-        peopleLabel = ObservableInt(View.VISIBLE)
-        messageLabel = ObservableField(context.getString(R.string.default_loading_people))
-
         initializeViews()
         fetchPeopleList()
     }

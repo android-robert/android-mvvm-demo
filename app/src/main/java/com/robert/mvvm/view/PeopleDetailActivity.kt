@@ -26,7 +26,7 @@ class PeopleDetailActivity : AppCompatActivity() {
     }
 
     private val extrasFromIntent: Unit
-        private get() {
+        get() {
             val people = intent.getSerializableExtra(EXTRA_PEOPLE) as People
             val peopleDetailViewModel = PeopleDetailViewModel(people)
             binding!!.peopleDetailViewModel = peopleDetailViewModel
