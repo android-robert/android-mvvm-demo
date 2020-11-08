@@ -26,9 +26,10 @@
                 app:expandedTitleMarginBottom="@dimen/spacing_large"
                 app:expandedTitleMarginEnd="64dp"
                 app:expandedTitleMarginStart="48dp"
-                app:expandedTitleTextAppearance="@style/CollapsingTextAppearance.TitleSize"
+
                 app:layout_scrollFlags="scroll|exitUntilCollapsed"
                 app:title="@{peopleDetailViewModel.fullUserName}">
+                <!--app:expandedTitleTextAppearance="@style/CollapsingTextAppearance.TitleSize"-->
 
                 <ImageView
                     android:layout_width="match_parent"
