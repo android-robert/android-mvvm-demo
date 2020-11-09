@@ -15,7 +15,7 @@ class PeopleDetailActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.people_detail_activity)
-        setSupportActionBar(binding?.toolbar)
+        //setSupportActionBar(binding?.toolbar)
         displayHomeAsUpEnabled()
         extrasFromIntent
     }
