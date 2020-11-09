@@ -16,6 +16,7 @@ import com.google.android.material.navigation.NavigationView
 import com.robert.mvvm.R
 import com.robert.mvvm.view.fragment.ChatFragment
 import com.robert.mvvm.view.fragment.MessageFragment
+import com.robert.mvvm.view.fragment.PeopleFragment
 import com.robert.mvvm.view.fragment.SendFragment
 
 class MainActivity: AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
@@ -36,7 +37,7 @@ class MainActivity: AppCompatActivity(), NavigationView.OnNavigationItemSelected
         val navigationView = findViewById<NavigationView>(R.id.nav_view)
         navigationView.setNavigationItemSelectedListener(this)
         if (savedInstanceState == null) {
-            supportFragmentManager.beginTransaction().replace(R.id.fragment_container, MessageFragment()).commit()
+            supportFragmentManager.beginTransaction().replace(R.id.fragment_container, PeopleFragment()).commit()
             navigationView.setCheckedItem(R.id.nav_about)
         }
 
