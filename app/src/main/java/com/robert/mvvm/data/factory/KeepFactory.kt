@@ -1,7 +1,6 @@
 package com.robert.mvvm.data.factory
 
-import com.robert.mvvm.constant.AppConst
-import com.robert.mvvm.data.PeopleService
+import com.robert.mvvm.constant.BuildConfig
 import com.robert.mvvm.data.api.KeepApiService
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
@@ -34,7 +33,7 @@ object KeepFactory {
             httpClient.addInterceptor(logging)
             val client = httpClient.build()
             val retrofit = Retrofit.Builder()
-                    .baseUrl(AppConst.KEEP_API_URL)
+                    .baseUrl(BuildConfig.KEEP_API_URL)
                     .addConverterFactory(GsonConverterFactory.create())
                     .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                     .client(client)

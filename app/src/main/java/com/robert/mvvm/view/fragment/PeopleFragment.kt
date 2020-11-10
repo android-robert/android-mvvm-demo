@@ -5,16 +5,16 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.RecyclerView
 import com.robert.mvvm.R
 import com.robert.mvvm.databinding.FragmentPeopleBinding
 import com.robert.mvvm.utils.LogUtils
+import com.robert.mvvm.view.BaseFragment
 import com.robert.mvvm.view.PeopleAdapter
 import com.robert.mvvm.viewmodel.PeopleViewModel
 import java.util.*
 
-class PeopleFragment: Fragment(), Observer {
+class PeopleFragment: BaseFragment(), Observer {
     private var peopleViewModel: PeopleViewModel? = null
     private var binding: FragmentPeopleBinding? = null
 
@@ -55,6 +55,14 @@ class PeopleFragment: Fragment(), Observer {
             LogUtils.e("--->observable.peopleList.size=${observable.peopleList.size}")
             val peopleAdapter: PeopleAdapter? = binding?.recyclerPeople?.adapter as PeopleAdapter?
             peopleAdapter?.setPeopleList(observable.peopleList)
+        }
+    }
+
+    companion object {
+        fun newInstance(bundle: Bundle): BaseFragment {
+            val fragment = PeopleFragment()
+            fragment.arguments = bundle
+            return fragment
         }
     }
 }
