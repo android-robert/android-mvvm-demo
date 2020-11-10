@@ -10,6 +10,8 @@
     <string name="common_action_save">Save</string>
 
     <!-- Menu Item -->
+    <string name="menu_item_timeline">Timeline</string>
+    <string name="menu_item_friends">Friends</string>
     <string name="menu_item_search">Search</string>
     <string name="menu_item_about_app">About App</string>
     <string name="menu_item_help">Help</string>
