@@ -1,6 +1,10 @@
 package com.robert.mvvm.view
 
+import android.graphics.Color
+import android.os.Build
 import android.os.Bundle
+import android.view.View
+import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
 import com.robert.mvvm.R
 import com.robert.mvvm.utils.LogUtils
@@ -64,5 +68,22 @@ open class BaseActivity: AppCompatActivity(), BaseFragment.ChangeFragmentListene
 
     override fun popBackStackFragment(stackName: String) {
         TODO("Not yet implemented")
+    }
+
+    fun setStatusBarWhite(activity: AppCompatActivity) {
+        //Make status bar icons color dark
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+            activity.window.decorView.systemUiVisibility = View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR
+            activity.window.statusBarColor = Color.WHITE
+        }
+    }
+
+    fun setStatusBarTransparent(activity: AppCompatActivity){
+        //Make Status bar transparent
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            activity.window.addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS)
+        }
+        //Make status bar icons color dark
+        setStatusBarWhite(activity)
     }
 }

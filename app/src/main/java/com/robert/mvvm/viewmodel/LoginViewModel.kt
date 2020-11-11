@@ -8,7 +8,9 @@ import com.robert.mvvm.BR
 import com.robert.mvvm.KeepApplication
 import com.robert.mvvm.model.User
 import com.robert.mvvm.utils.LogUtils
+import com.robert.mvvm.view.activities.ForgotPasswordActivity
 import com.robert.mvvm.view.activities.MainActivity
+import com.robert.mvvm.view.activities.SignupActivity
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.observers.DisposableObserver
@@ -77,6 +79,14 @@ class LoginViewModel(private val context: Context) : BaseObservable() {
                 }
             })
         compositeDisposable!!.add(disposable)
+    }
+
+    fun onSignupClicked() {
+        context.startActivity(SignupActivity.launch(context))
+    }
+
+    fun onForgotPasswordClicked() {
+        context.startActivity(ForgotPasswordActivity.launch(context))
     }
 
     fun startMainActivity() {
