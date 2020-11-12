@@ -1,10 +1,7 @@
 package com.robert.mvvm.view.activities
 
-import android.graphics.Color
-import android.os.Build
 import android.os.Bundle
 import android.view.View
-import android.view.WindowManager
 import android.widget.Toast
 import androidx.databinding.BindingAdapter
 import androidx.databinding.DataBindingUtil
@@ -20,7 +17,7 @@ class LoginActivity: BaseActivity() {
         super.onCreate(savedInstanceState)
 
         activityMainBinding = DataBindingUtil.setContentView(this, R.layout.activity_login)
-        activityMainBinding?.viewModel = LoginViewModel(this)
+        activityMainBinding?.viewModel = LoginViewModel(this, this)
         activityMainBinding?.executePendingBindings()
 
         setStatusBarTransparent(this@LoginActivity)

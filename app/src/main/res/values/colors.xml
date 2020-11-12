@@ -9,6 +9,26 @@
     <color name="colorTextInputBackground">#F7F7F7</color>
     <color name="actionbarOpacity">#00000000</color>
 
+    <!-- transparent -->
+    <color name="transparent">#00000000</color>
+    <color name="white_95_transparent">#F2FFFFFF</color>
+    <color name="white_93_transparent">#EFFFFFFF</color>
+    <color name="white_90_transparent">#E6FFFFFF</color>
+    <color name="white_87_transparent">#DFFFFFFF</color>
+    <color name="white_85_transparent">#D9FFFFFF</color>
+    <color name="white_80_transparent">#CCFFFFFF</color>
+    <color name="white_54_transparent">#8BFFFFFF</color>
+    <color name="white_62_transparent">#62FFFFFF</color>
+    <color name="white_45_transparent">#45FFFFFF</color>
+    <color name="white_35_transparent">#35FFFFFF</color>
+    <color name="white_25_transparent">#25FFFFFF</color>
+    <color name="white_15_transparent">#15FFFFFF</color>
+    <color name="black_93_transparent">#EF000000</color>
+    <color name="black_87_transparent">#DF000000</color>
+    <color name="black_54_transparent">#8B000000</color>
+    <color name="black_62_transparent">#62000000</color>
+    <color name="black_60_transparent">#60000000</color>
+
     <!--reds-->
     <color name="md_red_50">#FFEBEE</color>
     <color name="md_red_100">#FFCDD2</color>
