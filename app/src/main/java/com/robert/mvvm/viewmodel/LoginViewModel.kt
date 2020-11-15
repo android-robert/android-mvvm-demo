@@ -8,6 +8,7 @@ import androidx.databinding.Bindable
 import androidx.databinding.ObservableInt
 import com.robert.mvvm.BR
 import com.robert.mvvm.KeepApplication
+import com.robert.mvvm.R
 import com.robert.mvvm.model.User
 import com.robert.mvvm.utils.KeyboardUtils
 import com.robert.mvvm.utils.LogUtils
@@ -22,19 +23,30 @@ import io.reactivex.observers.DisposableObserver
 
 class LoginViewModel(private val baseActivity: BaseActivity, private val context: Context) : BaseObservable() {
 
-    private val user: User = User("robert", "", "")
-    private val successMessage = "Login was successful"
-    private val errorMessage = "Email or Password not valid"
     var loginProgress: ObservableInt = ObservableInt(View.GONE)
-
+    private val user: User = User("", "", "")
     private var compositeDisposable: CompositeDisposable? = CompositeDisposable()
 
     @Bindable
     var toastMessage: String? = null
-    set(value) {
-        field = value
-        notifyPropertyChanged(BR.toastMessage)
-    }
+        set(value) {
+            field = value
+            notifyPropertyChanged(BR.toastMessage)
+        }
+
+    @Bindable
+    var usernameMessage: String? = null
+        set(value) {
+            field = value
+            notifyPropertyChanged(BR.usernameMessage)
+        }
+
+    @Bindable
+    var passwordMessage: String? = null
+        set(value) {
+            field = value
+            notifyPropertyChanged(BR.passwordMessage)
+        }
 
     fun afterKeepIdTextChanged(s: CharSequence) {
         user.keepId = s.toString()
@@ -50,7 +62,10 @@ class LoginViewModel(private val baseActivity: BaseActivity, private val context
 
     fun onLoginClicked() {
         KeyboardUtils.hideSoftKeyboard(context)
-        loginSubmit()
+
+        if (isValidate()) {
+            loginSubmit()
+        }
     }
 
     fun loginSubmit() {
@@ -60,7 +75,7 @@ class LoginViewModel(private val baseActivity: BaseActivity, private val context
         val disposable = keepService!!.login(user.keepId, null, null, null)
             .subscribeOn(application.subscribeScheduler())
             .observeOn(AndroidSchedulers.mainThread())
-            .subscribeWith(object: DisposableObserver<com.robert.mvvm.data.response.User>() {
+            .subscribeWith(object : DisposableObserver<com.robert.mvvm.data.response.User>() {
 
                 override fun onStart() {
                     super.onStart()
@@ -71,12 +86,12 @@ class LoginViewModel(private val baseActivity: BaseActivity, private val context
 
                     if (response.status == null || response.status!!.not()) {
                         LogUtils.e("Loi roai.response.status=${response.status}")
-                        toastMessage= errorMessage
+                        toastMessage = context.getString(R.string.login_fail)
                         return
                     }
                     LogUtils.i("Result.keepId=${response.result?.keepId}, userId=${response.result?.userId}, userName=${response.result?.userName}")
 
-                    toastMessage = successMessage
+                    toastMessage = context.getString(R.string.login_successful)
                     startMainActivity()
                 }
 
@@ -90,6 +105,20 @@ class LoginViewModel(private val baseActivity: BaseActivity, private val context
                 }
             })
         compositeDisposable!!.add(disposable)
+    }
+
+    private fun isValidate(): Boolean {
+        var isValidate = true
+        if (user.keepId.isEmpty() || user.keepId.isBlank()) {
+            usernameMessage = context.getString(R.string.username_not_empty)
+            isValidate = false
+        }
+
+        if (user.password.isEmpty() || user.password.isBlank()) {
+            passwordMessage = context.getString(R.string.password_not_empty)
+            isValidate = false
+        }
+        return isValidate
     }
 
     fun showProgressBar() {

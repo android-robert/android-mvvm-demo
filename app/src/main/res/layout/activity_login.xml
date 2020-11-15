@@ -62,13 +62,15 @@
                     app:cardElevation="0dp">
 
                     <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/usernameError"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
+                        android:textAlignment="center"
                         app:hintEnabled="false">
 
                         <com.google.android.material.textfield.TextInputEditText
-                            android:id="@+id/et_username"
+                            android:id="@+id/username"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
@@ -79,13 +81,12 @@
                             android:drawableStart="@drawable/ic_person"
                             android:drawableLeft="@drawable/ic_person"
                             android:drawablePadding="12dp"
-
                             android:hint="@string/hint_username"
-
                             android:imeOptions="actionNext"
                             android:minWidth="320dp"
                             android:minHeight="50dp"
-                            android:singleLine="true" />
+                            android:singleLine="true"
+                            bind:usernameMessage="@{viewModel.usernameMessage}"/>
                     </com.google.android.material.textfield.TextInputLayout>
                 </androidx.cardview.widget.CardView>
 
@@ -99,13 +100,16 @@
                     app:cardElevation="0dp">
 
                     <com.google.android.material.textfield.TextInputLayout
+                        android:id="@+id/passwordError"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:gravity="center"
+                        android:textAlignment="center"
                         app:hintEnabled="false"
                         app:passwordToggleEnabled="true">
+                        <!-- bind:passwordMessage="@{viewModel.passwordMessage}" -->
 
-                        <EditText
+                        <com.google.android.material.textfield.TextInputEditText
                             android:id="@+id/et_password"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -121,7 +125,8 @@
                             android:imeOptions="actionDone"
                             android:inputType="textPassword"
                             android:minWidth="320dp"
-                            android:minHeight="50dp" />
+                            android:minHeight="50dp"
+                            bind:passwordMessage="@{viewModel.passwordMessage}"/>
                     </com.google.android.material.textfield.TextInputLayout>
                 </androidx.cardview.widget.CardView>
 

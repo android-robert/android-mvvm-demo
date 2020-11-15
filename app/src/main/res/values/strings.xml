@@ -64,4 +64,10 @@
     <string name="hint_email">Email</string>
     <string name="hint_phone">Phone</string>
     <string name="hint_confirm_password">Confirm Password</string>
+
+    <!-- Validation message -->
+    <string name="username_not_empty">The username is not empty</string>
+    <string name="password_not_empty">The password is not empty</string>
+    <string name="login_successful">Login was successful</string>
+    <string name="login_fail">Email or Password not valid</string>
 </resources>
