@@ -5,6 +5,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.robert.mvvm.R
+import com.robert.mvvm.view.BaseActivity
 import com.robert.mvvm.view.BaseFragment
 
 class ChatFragment: BaseFragment() {
@@ -13,9 +14,10 @@ class ChatFragment: BaseFragment() {
     }
 
     companion object {
-        fun newInstance(bundle: Bundle): BaseFragment {
+        fun newInstance(baseActivity: BaseActivity, bundle: Bundle): BaseFragment {
             val fragment = ChatFragment()
             fragment.arguments = bundle
+            fragment.baseActivity = baseActivity
             return fragment
         }
     }

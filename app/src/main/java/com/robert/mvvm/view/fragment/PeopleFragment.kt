@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.robert.mvvm.R
 import com.robert.mvvm.databinding.FragmentPeopleBinding
 import com.robert.mvvm.utils.LogUtils
+import com.robert.mvvm.view.BaseActivity
 import com.robert.mvvm.view.BaseFragment
 import com.robert.mvvm.view.PeopleAdapter
 import com.robert.mvvm.viewmodel.PeopleViewModel
@@ -59,9 +60,10 @@ class PeopleFragment: BaseFragment(), Observer {
     }
 
     companion object {
-        fun newInstance(bundle: Bundle): BaseFragment {
+        fun newInstance(baseActivity: BaseActivity, bundle: Bundle): BaseFragment {
             val fragment = PeopleFragment()
             fragment.arguments = bundle
+            fragment.baseActivity = baseActivity
             return fragment
         }
     }

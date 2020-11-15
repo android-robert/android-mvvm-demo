@@ -44,7 +44,7 @@ class MainActivity: BaseActivity(), NavigationView.OnNavigationItemSelectedListe
         navigationView = findViewById(R.id.nav_view)
         navigationView!!.setNavigationItemSelectedListener(this)
         if (savedInstanceState == null) {
-            setSelectedFragment(R.id.nav_timeline, TimelineFragment.newInstance(Bundle()), AppConst.ANIMATION_SLIDE_RIGHT_TO_LEFT)
+            setSelectedFragment(R.id.nav_timeline, TimelineFragment.newInstance(this, Bundle()), AppConst.ANIMATION_SLIDE_RIGHT_TO_LEFT)
         }
     }
 
@@ -84,15 +84,15 @@ class MainActivity: BaseActivity(), NavigationView.OnNavigationItemSelectedListe
     private fun onBottomNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.navigation_home -> {
-                setSelectedFragment(R.id.nav_timeline, TimelineFragment.newInstance(Bundle()), AppConst.ANIMATION_SLIDE_RIGHT_TO_LEFT)
+                setSelectedFragment(R.id.nav_timeline, TimelineFragment.newInstance(this, Bundle()), AppConst.ANIMATION_SLIDE_RIGHT_TO_LEFT)
                 return true
             }
             R.id.navigation_sms -> {
-                setSelectedFragment(R.id.nav_help, ChatFragment.newInstance(Bundle()), AppConst.ANIMATION_SLIDE_RIGHT_TO_LEFT)
+                setSelectedFragment(R.id.nav_help, ChatFragment.newInstance(this, Bundle()), AppConst.ANIMATION_SLIDE_RIGHT_TO_LEFT)
                 return true
             }
             R.id.navigation_notifications -> {
-                setSelectedFragment(R.id.nav_send, SendFragment.newInstance(Bundle()), AppConst.ANIMATION_SLIDE_RIGHT_TO_LEFT)
+                setSelectedFragment(R.id.nav_send, SendFragment.newInstance(this, Bundle()), AppConst.ANIMATION_SLIDE_RIGHT_TO_LEFT)
                 return true
             }
         }
@@ -101,10 +101,10 @@ class MainActivity: BaseActivity(), NavigationView.OnNavigationItemSelectedListe
 
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
-            R.id.nav_timeline -> setSelectedFragment(R.id.nav_timeline, TimelineFragment.newInstance(Bundle()), AppConst.ANIMATION_SLIDE_RIGHT_TO_LEFT)
-            R.id.nav_friends -> setSelectedFragment(R.id.nav_about, PeopleFragment.newInstance(Bundle()), AppConst.ANIMATION_SLIDE_RIGHT_TO_LEFT)
-            R.id.nav_help -> setSelectedFragment(R.id.nav_help, ChatFragment.newInstance(Bundle()), AppConst.ANIMATION_SLIDE_RIGHT_TO_LEFT)
-            R.id.nav_send -> setSelectedFragment(R.id.nav_send, SendFragment.newInstance(Bundle()), AppConst.ANIMATION_SLIDE_RIGHT_TO_LEFT)
+            R.id.nav_timeline -> setSelectedFragment(R.id.nav_timeline, TimelineFragment.newInstance(this, Bundle()), AppConst.ANIMATION_SLIDE_RIGHT_TO_LEFT)
+            R.id.nav_friends -> setSelectedFragment(R.id.nav_about, PeopleFragment.newInstance(this, Bundle()), AppConst.ANIMATION_SLIDE_RIGHT_TO_LEFT)
+            R.id.nav_help -> setSelectedFragment(R.id.nav_help, ChatFragment.newInstance(this, Bundle()), AppConst.ANIMATION_SLIDE_RIGHT_TO_LEFT)
+            R.id.nav_send -> setSelectedFragment(R.id.nav_send, SendFragment.newInstance(this, Bundle()), AppConst.ANIMATION_SLIDE_RIGHT_TO_LEFT)
         }
         drawerLayout!!.closeDrawer(GravityCompat.START)
         return true

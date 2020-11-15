@@ -12,6 +12,7 @@ import com.robert.mvvm.utils.LogUtils
 open class BaseFragment: Fragment() {
     val CURR_FRAGMENT_TAG = javaClass.simpleName
     lateinit var mChangeFragmentListener: ChangeFragmentListener
+    var baseActivity: BaseActivity? = null
 
     interface ChangeFragmentListener {
         fun changeFragment(fragment: BaseFragment, animation: Int)
